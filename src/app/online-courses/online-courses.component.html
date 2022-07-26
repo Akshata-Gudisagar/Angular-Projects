@@ -1,0 +1,28 @@
+
+    
+
+
+<div class="row">
+    <div class="col-sm-12 well">
+        <h2 id="header">Online Courses- Registration App</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-3 well" style="height: 100%;">
+        <ul>
+            <li><a routerLink="/home" class="list-group-item" routerLinkActive="active">Home</a></li>
+            <li><a routerLink="/all-courses" class="list-group-item" routerLinkActive="active">viewallcourses</a></li>
+            <li><a routerLink="/registration" class="list-group-item" routerLinkActive="active">Registeration</a></li>
+            <li><a routerLink="/about" class="list-group-item" routerLinkActive="active">Aboutus</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-9 well" style="height: 100%;">
+        <div ng-view>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+
+
+

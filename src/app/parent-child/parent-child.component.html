@@ -1,0 +1,15 @@
+
+<h3>Choose course to view partcipants</h3>
+<div class="row">
+    <span 
+          *ngFor="let participant of participants">
+        <h3><input type="button" style="width: 100px;"  
+                   (click)="onParticipantSelected(participant)" 
+                   [value]="participant.participantId"/>&nbsp;&nbsp;&nbsp;{{participant.participantName}}</h3>
+    </span>  
+</div>
+<div class="row">
+        <div class="col-xs-12">
+            <app-parent-child2 [participantId]="participantId"  ></app-parent-child2 >
+        </div>
+</div>

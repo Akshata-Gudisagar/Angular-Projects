@@ -1,0 +1,87 @@
+<!-- <nav class="navbar navbar-light bg-primary ">
+    <div class="container-fluid">
+        <h1 style="color: white;">Angular CRUD</h1>
+        <div class="d-flex">
+            <button type="button" data-bs-toggle="modal" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Customer</button>
+        </div>
+    </div>
+</nav> -->
+
+<h3 class="d-flex justify-content-center">Customer Details</h3>
+<div class="table">
+    <button class="d-flex justify-content-end p-button-primary" pButton (click)="clickAddCustomer() "
+        label="Add coustomer" style="height:45px;margin-left:1050px;" ></button>
+
+<p-table [value]="customerData">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Customer ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email ID</th>
+            <th>Mobile No</th>
+            <th>Total Amount<th>
+            <th>Action</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-row>
+        <tr>
+            <td>{{row.id}}</td>
+            <td>{{row.firstName}}</td>
+            <td>{{row.lastName}}</td>
+            <td>{{row.email}}</td>
+            <td>{{row.mobile}}</td>
+            <td>{{row.totalAmount}}</td>
+            <!-- <td style=" margin: 5px; ">  -->
+               <td></td>
+                <button pButton  (click)=" editCustomer(row)"  label="Edit"   class="p-button-info"></button>
+                <button pButton label="Delete" (click)=" deleteCustomer(row)" class="p-button-danger mx-2" ></button>
+            <!-- </td> -->
+           
+           
+         </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog header="Customer Detail" [(visible)]="displayModal" [modal]="true" [style]="{width: '40vw'}" [draggable]="false" [resizable]="false">
+    <form [formGroup]="formValue">
+        <label class="form-label">Customer Id</label>
+        <div class=" p-inputgroup">
+            <!-- <span class="p-inputgroup-addon"><i class="pi pi-file"></i></span> -->
+            <input type="text" pInputText formControlName="id">
+        </div>
+        <label class="form-label">First Name</label>
+        <div class=" p-inputgroup">
+            <!-- <span class="p-inputgroup-addon"><i class="pi pi-file"></i></span> -->
+            <input type="text" pInputText formControlName="firstName">
+        </div>
+        <label class="form-label">Last Name</label>
+        <div class=" p-inputgroup">
+            <!-- <span class="p-inputgroup-addon"><i class="pi pi-file"></i></span> -->
+            <input type="text" pInputText formControlName="lastName">
+        </div>
+        <div class="mb-3 -inputgroup">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email">
+        </div>
+        <div class="mb-3 -inputgroup">
+            <label class="form-label">Mobile</label>
+            <input type="number" class="form-control" formControlName="mobile">
+        </div>
+        <div class="mb-3 -inputgroup">
+            <label class="form-label">Total Amount</label>
+            <input type="number" class="form-control" formControlName="totalAmount">
+        </div>
+    </form>
+    <ng-template pTemplate="footer">
+        <button pButton id="cancel" class="p-button-secondary" (click)="displayModal=false">Close</button>
+        <p-button type="button" *ngIf="showAdd" (click)="postCustomerDetails();displayModal=false">Add</p-button>
+        <p-button type="button" *ngIf="showEdit" (click)=" updateCustomerDetails();displayModal=false ">Update
+        </p-button>
+    </ng-template>
+</p-dialog>
+</div>
+
+
+
+

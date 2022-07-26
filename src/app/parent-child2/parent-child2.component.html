@@ -1,0 +1,20 @@
+<h3>participant Register</h3>
+
+
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Candidate Name</th>
+      <th>Email</th>
+      <th>Course Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ord of partiregister| employeepipe : participantId">
+      <td>{{ord.candidateName}}</td>
+      <td>{{ord.email }}</td>
+      <td>{{ord.participantId}}</td>
+    </tr>
+  </tbody>
+</table>
+

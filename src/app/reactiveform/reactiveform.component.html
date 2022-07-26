@@ -1,0 +1,67 @@
+<p>reactiveform works!</p>
+<h2>Exercise8</h2>
+<h4>Reactive Form </h4>
+
+
+<form [formGroup]="registrationForm" (ngSubmit)="addUser()">
+    <div class="form-group">
+        <label>FirstName</label>
+        <input type="text" pInputText name="FirstName" class="form-control" formControlName="FirstName"/>    
+        <div *ngIf="registrationForm.controls['FirstName'].hasError('required') &&( registrationForm.controls['FirstName'].touched || registrationForm.controls['FirstName'].dirty )" >
+             Firstname is mandatory
+        </div>
+        <div *ngIf="registrationForm.controls['FirstName'].hasError('pattern') &&( registrationForm.controls['FirstName'].touched || registrationForm.controls['FirstName'].dirty )" >
+            Firstname is not volid
+       </div>
+    </div>
+    <div class="form-group">
+        <label>LastName</label>
+        <input type="text" pInputText name="LastName" class="form-control" formControlName="LastName"/>    
+        <div *ngIf="registrationForm.controls['LastName'].hasError('required') && (registrationForm.controls['LastName'].touched || registrationForm.controls['LastName'].dirty)" >
+            Lastname is mandatory
+        </div>
+        <div *ngIf="registrationForm.controls['LastName'].hasError('pattern') && (registrationForm.controls['LastName'].touched || registrationForm.controls['LastName'].dirty)" >
+            Lastname is in volid
+        </div>
+        
+    </div>
+    <div class="form-group">
+        <label>MobileNo</label>
+        <input type="text" pInputText name="MobileNo" class="form-control" formControlName="MobileNo"/> 
+        <div *ngIf="registrationForm.controls['MobileNo'].hasError('required')&& (registrationForm.controls['MobileNo'].touched || registrationForm.controls['MobileNo'].dirty)">
+            Mobile No is mandatory
+        </div>
+        <div *ngIf="registrationForm.controls['MobileNo'].hasError('pattern')&& (registrationForm.controls['MobileNo'].touched || registrationForm.controls['MobileNo'].dirty)">
+            Mobile No is not volid
+        </div>
+        
+    </div>
+    
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" pInputText name="Email" class="form-control" formControlName="Email"/>
+        <div *ngIf="registrationForm.controls['Email'].hasError('required')&& (registrationForm.controls['Email'].touched || registrationForm.controls['Email'].dirty)">
+            Email is mandatory
+        </div> 
+        <div *ngIf="registrationForm.controls['Email'].hasError('pattern')&& (registrationForm.controls['Email'].touched || registrationForm.controls['Email'].dirty)">
+            Email is not volid
+        </div> 
+    </div>
+    <div class="form-group">
+        <label>password</label>
+        <input type="text" pInputText name="Password" class="form-control" formControlName="Password"/>
+        <div *ngIf="registrationForm.controls['Password'].hasError('required')&& (registrationForm.controls['Password'].touched || registrationForm.controls['Password'].dirty)">
+            Password is mandatory
+        </div> 
+        <div *ngIf="registrationForm.controls['Password'].hasError('pattern')&& (registrationForm.controls['Password'].touched || registrationForm.controls['Password'].dirty)">
+            Password is not volid
+        </div> 
+    </div>
+
+    
+    <div class="form-group">
+        <button pButtontype="submit" class="btn btn-primary" [disabled]=!registrationForm.valid>Add User</button> 
+        <button pButtontype="reset" class="btn btn-primary">Clear Form</button>
+     </div>
+</form>
+

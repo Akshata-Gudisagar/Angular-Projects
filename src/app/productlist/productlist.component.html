@@ -1,0 +1,31 @@
+Choose Category :
+<select [(ngModel)]="selectedCategory">
+    <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+</select>
+
+<p-table [value]="products">
+  <ng-template pTemplate="header">
+  
+    <tr>
+      <th>productId</th>
+      <th>product Name</th>
+      <th>product Quantity</th>
+      <th>price</th>
+      <th>category</th>
+      <th>manufacturer</th>
+      
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-prd>
+  
+    <tr *ngIf="prd.category == selectedCategory">
+      <td>{{prd.productId | uppercase}}</td>
+      <td>{{prd.productName | titlecase}}</td>
+      <td>{{prd.productQuantity}}</td>
+      <td>{{prd.price|currency}}</td>
+      <td>{{prd.category | uppercase}}</td>
+      <td>{{prd.manufacturer | titlecase}}</td>
+      
+    </tr>
+  </ng-template>
+</p-table>

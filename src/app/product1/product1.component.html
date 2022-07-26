@@ -1,0 +1,31 @@
+<p>product1 works!</p>
+<br/><br/>
+Min Price : <input type="text"  [(ngModel)]="minPrice"/> Max Price<input type="text" [(ngModel)]="maxPrice"/>
+
+<p-table [value]="productArray">
+  <ng-template pTemplate="header">
+  
+    <tr>
+      <th>Product Code</th>
+      <th>Product Description</th>
+      <th>Unit Price</th>
+      <th>Quantity</th>
+      <th>Category</th>
+      <th>Manufacturer</th>
+     
+      
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+  
+    <tr *ngFor="let product of productArray | productfilter: minPrice : maxPrice">
+      <td>{{product.productCode}}</td>
+      <td>{{product.productDescription}}</td>
+      <td>{{product.unitPrice}}</td>
+      <td>{{product.quantity}}</td>
+      <td>{{product.category}}</td>
+      <td>{{product.manufacturer}}</td>
+    </tr>
+  </ng-template>
+</p-table>
+

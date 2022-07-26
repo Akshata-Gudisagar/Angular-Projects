@@ -1,0 +1,48 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "firstName": "Deepali",
+      "lastName": "Padiyar",
+      "email": "ddp@gmail.com",
+      "mobile": 9264321657,
+      "totalAmount": 2000
+    },
+    {
+      "id": 3,
+      "firstName": "Setha",
+      "lastName": "abcd",
+      "email": "abc@gmail.com",
+      "mobile": 9207543768,
+      "totalAmount": 50000
+    },
+    {
+      "id": 4,
+      "firstName": "Akku",
+      "lastName": "phg",
+      "email": "akshata@gmail.com",
+      "mobile": 9,
+      "totalAmount": 90
+    },
+    {
+      "id": 5,
+      "firstName": "akshata.gudisagar",
+      "lastName": "pagal",
+      "email": "hjnk@fgh.gjj",
+      "mobile": 34,
+      "totalAmount": 423
+    },
+    {
+      "id": 6,
+      "firstName": "hh",
+      "lastName": "pagal",
+      "email": "hjnk@fgh.gjj",
+      "mobile": 70,
+      "totalAmount": 78
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,0 +1,82 @@
+<div class="container1">
+<form #contactForm="ngForm" (ngSubmit)="addRegister()">
+    <h1>COURSE REGISTRATION FORM</h1>
+<div class="form">
+    <div class="form-group mx-1">
+        <label>Choose course</label>
+        <select name="course" class="form-select"  [(ngModel)]="events.course" required  #course="ngModel" >
+            <option>--Choose An Event-- </option>
+            <option [value]="course" *ngFor="let event of Events">{{event}} </option>
+               
+         </select>
+        
+        <div *ngIf="course.touched && course.invalid"  class="alert alert-danger" required="required" style="color: red;">
+            Choosing Event is mandatory
+        </div>
+   </div><br>
+
+    
+    <div class="form-group mx-1">
+        <label for="">candidate Name </label>
+        <input type="text" name="name"  class="form-control" [(ngModel)]="events.candidateName" required
+            minlength="5" maxlength="30" #candidateName ="ngModel" style="margin-left: 0px;">
+        <div *ngIf="candidateName .touched && candidateName .invalid" class="alert alert-danger">
+            <div *ngIf="candidateName .errors?.['required']" style="color: red;">
+                Candidate Name is mandatory
+            </div>
+            <div *ngIf="candidateName .errors?.['minlength']" style="color: red;">
+                Mininum 5 characters
+            </div>
+            <div *ngIf="candidateName .errors?.['maxlength']" style="color: red;">
+                Maximum 30 characters
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="form-group mx-1">
+    <label>Address</label>
+    <textarea name="address" class="form-control" [(ngModel)]="events.address" required #address="ngModel" style="margin-left:0px;padding-top: 10px;">
+    </textarea>
+    <div *ngIf="address.touched && address.invalid"  class="alert alert-danger" style="color: red;">
+        Address is mandatory.Address must contains 10 to 100 characters.
+    </div>
+    </div><br>
+    <div class="form-group mx-1">
+    <label>Email</label>
+    <input type="email" name="email" class="form-control" placeholder="name@example.com" [(ngModel)]="events.email" required #email="ngModel" style="margin-left: 0px;">
+    <div *ngIf="email.touched && email.invalid"  class="alert alert-danger" style="color: red;">
+        Email ID should be valid.
+    </div>
+    </div><br>
+    <div class="form-group mx-1">
+    <label>Contact No</label>
+    <input type="text" name="contactNo" class="form-control" [(ngModel)]="events.contactNo" pattern="^[0-9]{10}$" required #contactNo="ngModel" style="margin-left: 0px;">
+    <div *ngIf="contactNo.touched && contactNo.invalid"  class="alert alert-danger" style="color: red;" >
+        Contact No should accept only numbers. Should be 10 digits
+    </div>
+    </div><br>
+   
+
+
+    <div class="form-group mx-1">
+    <h4>Valid : {{contactForm.valid}}</h4>
+
+
+    
+   
+
+    <br>
+    <div class="form-group mx-1">
+    <label> Interested to Receive Newsletters?</label>
+    <input type="checkbox" class="alert alert-danger" required="required">
+  
+    
+</div><br>
+   <button type="submit" name="sumbmit" class="btn btn-primary mx-3" [disabled]="contactForm.invalid">Register Now</button>
+   <button type="reset" name="reset" class="btn btn-primary">Clear From</button>
+</div>
+</div>
+</form>
+</div>
+
+

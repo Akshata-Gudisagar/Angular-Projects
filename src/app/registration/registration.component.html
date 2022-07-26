@@ -1,0 +1,59 @@
+<h2>Exercise7</h2>
+<h4>Template Form</h4>
+<form  #registrationform="ngForm" (ngSubmit)="Addform(registrationform.value)">
+   
+       <div class="form-group">
+       <label>FirstName: </label>
+       <input type="text"  pInputText name="FirstName" class="form-control" [(ngModel)]="registrations.FirstName" required  pattern="^[a-zA-Z\S]{6,20}$" #FirstName="ngModel"/>
+     <div *ngIf="FirstName.touched && FirstName.invalid" class="alert alert-danger">
+         FirstName is mandatory
+     </div>
+      <div *ngIf="FirstName.errors?.['pattern']">
+         Minimum length 6 characters
+     </div> 
+      <div *ngIf="FirstName.errors?.['pattern']">
+         Maximum length 20 characters
+     </div> 
+   </div>
+   <div class="form-group">
+       <label>LastName:
+       </label>
+       <input type="text" pInputText name="LastName" class="form-control"   [(ngModel)]="registrations.LastName" required pattern="^[a-zA-Z\S]{5,10}$" #LastName="ngModel"/>
+       <div *ngIf="LastName.touched && LastName.invalid" class="alert alert-danger">
+           LastName is mandatory
+       </div>
+   </div>
+   <div class="form-group">
+       <label>MobileNo:
+       </label>
+       <input type="text" pInputText name="MobileNo" class="form-control"  [(ngModel)]="registrations.MobileNo" required pattern="^[0-9\S]{10}$" #MobileNo="ngModel"/>
+       <div *ngIf="MobileNo.touched && MobileNo.invalid "  class="alert alert-danger">
+           MobileNo is mandatory
+       </div>
+       <div *ngIf="MobileNo.errors?.['pattern']">
+           MobileNo should be in 10 digits
+       </div>
+   </div>
+   <div class="form-group">
+       <label>Email:
+       </label>
+       <input type="text" pInputText name="Email" class="form-control"  [(ngModel)]="registrations.Email" required pattern="^[^]+@[^]+\.[a-z]{2,3}$" #Email="ngModel"/>
+       <div *ngIf="Email.touched && Email.invalid "  class="alert alert-danger">
+           Email is mandatory
+       </div>
+   </div>
+   <div class="form-group">
+       <label>Address:
+       </label>
+       <input type="text" pInputText name="Address" class="form-control"  [(ngModel)]="registrations.Address" required pattern="[a-zA-Z]{20,100}$" #Address="ngModel"/>
+        <div *ngIf="Address.touched&&Address.invalid" class="alert alert-danger">
+           Enter the Address
+       </div> 
+   </div>
+   <div class="form-group">
+       <button pButton type="Submit" label="AddUser" class="btn btn-primary">Submit</button>
+       <!-- <button pButton type="button" label="Reset" >Reset</button> -->
+   </div>
+   
+   </form>
+                   

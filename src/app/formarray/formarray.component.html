@@ -1,0 +1,46 @@
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()" id="form">
+    <h1>Form Array</h1>
+    <label for=""></label>
+    
+       <div formArrayName="address">
+         <div *ngFor="let addres of address.controls; let i=index">
+           <div [formGroupName]="i">
+             <!-- {{i}} -->
+             <div class="form-group">
+        
+                <input type="text"  pInputText class="p-inputtext" formControlName="firstName" placeholder="firstName">
+                </div>
+                <div class="form-group">
+        
+                    <input type="text"  pInputText class="p-inputtext" formControlName="lastName" placeholder="lastName">
+                    </div>
+                    <div class="form-group">
+        
+                        <input type="number"  pInputText class="p-inputtext" formControlName="mobile" placeholder="Mobile No">
+                        </div>
+             <div class="form-group">
+        
+             <input type="text"  pInputText class="p-inputtext" formControlName="address" placeholder="Add Address">
+             </div>
+             <div class="form-group">
+           
+             <input  type="number"  pInputText class="p-inputtext"  formControlName="pincode" placeholder="pincode">
+           </div>
+             <button (click)="removeAddress(i)" pButton pRipple  class="p-button-danger">Remove</button>
+                
+   
+           </div>
+   
+         </div>
+       </div>
+    
+      <div>
+           <button type="button" (click)="addAddress()" class="p-button-secondary"  pButton pRipple>Add</button>
+       </div>
+   
+   <div>
+         <button type="submit" pButton pRipple  >Submit</button>
+         <!-- <button type="button" (click)=" " class="p-button-secondary"  pButton pRipple>Submit</button> -->
+       </div>
+   </form>
+   
